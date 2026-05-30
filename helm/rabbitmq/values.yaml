@@ -1,0 +1,29 @@
+image:
+  repository: rabbitmq
+  tag: "4.0-management"
+  pullPolicy: IfNotPresent
+
+nodeSelector:
+  node-role.kubernetes.io/control-plane: "true"
+
+port:
+  amqp: 5672
+  management: 15672
+
+storage:
+  size: 2Gi
+  storageClass: local-path
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+ingress:
+  host: rabbitmq.local
+
+service:
+  type: ClusterIP
