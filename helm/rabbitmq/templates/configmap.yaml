@@ -6,3 +6,4 @@ metadata:
 data:
   rabbitmq.conf: |
     loopback_users = none
+    consumer_timeout = 14400000
