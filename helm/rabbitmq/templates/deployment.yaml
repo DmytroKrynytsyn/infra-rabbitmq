@@ -14,6 +14,8 @@ spec:
     metadata:
       labels:
         app: rabbitmq
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       nodeSelector:
         {{- toYaml .Values.nodeSelector | nindent 8 }}
