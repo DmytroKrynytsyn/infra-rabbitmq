@@ -41,13 +41,15 @@ spec:
               command: ["rabbitmq-diagnostics", "ping"]
             initialDelaySeconds: 60
             periodSeconds: 20
-            timeoutSeconds: 10
+            timeoutSeconds: 30
+            failureThreshold: 6
           livenessProbe:
             exec:
               command: ["rabbitmq-diagnostics", "ping"]
             initialDelaySeconds: 60
             periodSeconds: 20
-            timeoutSeconds: 10
+            timeoutSeconds: 30
+            failureThreshold: 6
       volumes:
         - name: storage
           persistentVolumeClaim:
